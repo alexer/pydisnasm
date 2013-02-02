@@ -32,14 +32,20 @@
  * ----------------------------------------------------------------------- */
 
 /* 
- * sync.h   header file for sync.c
+ * preproc.h  header file for preproc.c
  */
 
-#ifndef NASM_SYNC_H
-#define NASM_SYNC_H
+#ifndef NASM_PREPROC_H
+#define NASM_PREPROC_H
 
-void init_sync(void);
-void add_sync(uint32_t position, uint32_t length);
-uint32_t next_sync(uint32_t position, uint32_t *length);
+//AXR #include "pptok.h"
+
+extern const char * const pp_directives[];
+extern const uint8_t pp_directives_len[];
+
+/* Pointer to a macro chain */
+typedef const unsigned char macros_t;
+
+enum preproc_token pp_token_hash(const char *token);
 
 #endif

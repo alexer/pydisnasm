@@ -1,7 +1,7 @@
 from distutils.core import setup, Extension
 
 module = Extension('_disassemble',
-	sources = ['_disassemblemodule.c', 'nasm/disasm.c', 'nasm/insnsd.c', 'nasm/sync.c'])
+	sources = ['_disassemblemodule.c', 'nasm/disasm.c', 'nasm/regdis.c', 'nasm/insnsd.c', 'nasm/insnsb.c', 'nasm/regs.c', 'nasm/insnsn.c', 'nasm/sync.c', 'nasm/nasmlib.c'])
 
 setup (name = '_disassemble',
 	version = '0.1',

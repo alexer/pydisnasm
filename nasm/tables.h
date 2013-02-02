@@ -31,15 +31,39 @@
  *
  * ----------------------------------------------------------------------- */
 
-/* 
- * sync.h   header file for sync.c
+/*
+ * tables.h
+ *
+ * Declarations for auto-generated tables
  */
 
-#ifndef NASM_SYNC_H
-#define NASM_SYNC_H
+#ifndef NASM_TABLES_H
+#define NASM_TABLES_H
 
-void init_sync(void);
-void add_sync(uint32_t position, uint32_t length);
-uint32_t next_sync(uint32_t position, uint32_t *length);
+#include "compiler.h"
+#include <inttypes.h>
+#include "insnsi.h"		/* For enum opcode */
+#include "opflags.h"		/* For opflags_t */
 
-#endif
+/* --- From standard.mac via macros.pl: --- */
+
+/* macros.c */
+extern const unsigned char nasm_stdmac[];
+extern const unsigned char * const nasm_stdmac_after_tasm;
+const unsigned char *nasm_stdmac_find_package(const char *);
+
+/* --- From insns.dat via insns.pl: --- */
+
+/* insnsn.c */
+extern const char * const nasm_insn_names[];
+
+/* --- From regs.dat via regs.pl: --- */
+
+/* regs.c */
+extern const char * const nasm_reg_names[];
+/* regflags.c */
+extern const opflags_t nasm_reg_flags[];
+/* regvals.c */
+extern const int nasm_regvals[];
+
+#endif /* NASM_TABLES_H */

@@ -4,7 +4,7 @@
 #define MAX_MNEMONIC 64
 
 static PyObject *
-disassemble_disassemble(PyObject *self, PyObject *args)
+disnasm_disassemble(PyObject *self, PyObject *args)
 {
 	char mnemonic[MAX_MNEMONIC];
 	const char *data;
@@ -18,13 +18,13 @@ disassemble_disassemble(PyObject *self, PyObject *args)
 	return Py_BuildValue("ls", len, mnemonic);
 }
 
-static PyMethodDef DisassembleMethods[] = {
-	{"disassemble", disassemble_disassemble, METH_VARARGS, "Disassemble one instruction of x86 machine code."},
+static PyMethodDef DisnasmMethods[] = {
+	{"disassemble", disnasm_disassemble, METH_VARARGS, "Disassemble one instruction of x86 machine code."},
 	{NULL, NULL, 0, NULL}
 };
 
 PyMODINIT_FUNC
-init_disassemble(void)
+init_disnasm(void)
 {
-	(void) Py_InitModule("_disassemble", DisassembleMethods);
+	(void) Py_InitModule("_disnasm", DisnasmMethods);
 }

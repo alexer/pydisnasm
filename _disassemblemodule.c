@@ -8,12 +8,12 @@ disassemble_disassemble(PyObject *self, PyObject *args)
 {
 	char mnemonic[MAX_MNEMONIC];
 	const char *data;
-	long datalen, len;
+	long datalen, len, bits;
 
-	if(!PyArg_ParseTuple(args, "s#", &data, &datalen))
+	if(!PyArg_ParseTuple(args, "s#I", &data, &datalen, &bits))
 		return NULL;
 	
-	len = disasm(data, mnemonic, MAX_MNEMONIC, 32, 0, 0, 0);
+	len = disasm(data, mnemonic, MAX_MNEMONIC, bits, 0, 0, 0);
 
 	return Py_BuildValue("ls", len, mnemonic);
 }
